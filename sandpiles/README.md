@@ -1,4 +1,5 @@
 # SANPILES
+![image](https://github.com/user-attachments/assets/d46a60bb-065b-4e83-bd38-8e385a2f0bb2)
 
 ## What is sandpiles ? 
 A sandpile is a mathematical model that simulates the behavior and stability of sand piles. In this model, each cell of a grid contains a certain number of "grains". When a cell contains more than 3 grains, it becomes unstable and "topples", distributing its grains to neighboring cells.
