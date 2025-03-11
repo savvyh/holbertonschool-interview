@@ -73,31 +73,38 @@ bool is_stable(int grid[3][3])
 void toppling(int grid[3][3])
 {
 	int x, y;
+	int temp[3][3];
 
+	for (x = 0; x < 3; x++)
+	{
+		for (y = 0; y < 3; y++)
+		{
+			temp[x][y] = grid[x][y];
+		}
+	}
 	for (x = 0; x < 3; x++)
 	{
 		for (y = 0; y < 3; y++)
 		{
 			if (grid[x][y] > 3)
 			{
-				grid[x][y] -= 4;
+				temp[x][y] -= 4;
 				if (x > 0)
-				{
-					grid[x - 1][y] += 1;
-				}
+					temp[x - 1][y] += 1;
 				if (x < 2)
-				{
-					grid[x + 1][y] += 1;
-				}
+					temp[x + 1][y] += 1;
 				if (y > 0)
-				{
-					grid[x][y - 1] += 1;
-				}
+					temp[x][y - 1] += 1;
 				if (y < 2)
-				{
-					grid[x][y + 1] += 1;
-				}
+					temp[x][y + 1] += 1;
 			}
+		}
+	}
+	for (x = 0; x < 3; x++)
+	{
+		for (y = 0; y < 3; y++)
+		{
+			grid[x][y] = temp[x][y];
 		}
 	}
 }
