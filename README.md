@@ -1,4 +1,4 @@
-# Algorithm
+# ALGORITHMS
 
 ## First project SANDPILES
 #### What is sandpiles ? 
@@ -15,5 +15,3 @@ This concept has applications in various fields such as:
 - Graph theory and linear algebra
 
 The project implements the addition of two stable sandpiles and the resulting stabilization process.
-
-
