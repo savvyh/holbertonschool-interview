@@ -15,3 +15,13 @@ This concept has applications in various fields such as:
 - Graph theory and linear algebra
 
 The project implements the addition of two stable sandpiles and the resulting stabilization process.
+
+## Second project 2048 (single line)
+#### 2048 game
+
+2048 is a popular sliding puzzle game where players combine numbered tiles on a grid by sliding them in different directions. The goal is to create a tile with the number 2048. When two tiles with the same number collide during a slide, they merge into a single tile with their sum. The game continues until either:
+
+- The player creates a tile with 2048 (victory)
+- The grid fills up with no possible moves left (game over)
+
+In this version, we focus on implementing the sliding and merging mechanics for a single line, which is a fundamental part of the full 2048 game logic.
