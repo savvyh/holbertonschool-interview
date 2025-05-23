@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 """
-Module that contains the function minOperations 
+Module that contains the function minOperations
 """
 
 
 def minOperations(n):
     """
-    Calculates the minimum number of operations needed to achieve exactly n 'H' characters in the file.
+    Get the minimum number of operations to achieve exactly n 'H' characters.
     """
 
     sum = 0
     if n < 2:
-      return 0
+        return 0
     else:
-       for i in range (2, n):
-          if n % i == 0:
-             sum += i
-             n = n // i
-          else:
-             i += 1
-       return sum
+        for i in range(2, n + 1):
+            if n % i == 0:
+                sum += i
+                n = n // i
+            else:
+                i += 1
+    return sum
