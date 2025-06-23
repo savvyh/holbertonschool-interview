@@ -9,18 +9,32 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *current = *head;
+	listint_t *current;
 	int length = 0;
 	int i = 0;
-	int j = 0;
-	int *array = malloc(sizeof(int) * length);
+	int j;
+	int *array;
 
+	if (*head == NULL)
+		return (1);
+
+	current = *head;
+	while (current != NULL)
+	{
+		length++;
+		current = current->next;
+	}
+
+	array = malloc(sizeof(int) * length);
+	if (array == NULL)
+		return (0);
+
+	current = *head;
 	while (current != NULL)
 	{
 		array[i] = current->n;
 		current = current->next;
 		i++;
-		length++;
 	}
 
 	for (j = 0; j < length / 2; j++)
