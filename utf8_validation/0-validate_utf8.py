@@ -20,6 +20,9 @@ def validUTF8(data):
     continuation_number = 0
 
     for byte in data:
+        if byte < 0 or byte > 255:
+            return False
+
         binary_representation = format(byte, '08b')
 
         if continuation_number == 0:
