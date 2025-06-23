@@ -23,8 +23,8 @@ def validUTF8(data):
         binary_representation = format(byte, '08b')
 
         if continuation_number == 0:
-            for i in range(5):
-                if binary_representation[i] == '1':
+            for bit in binary_representation[:5]:
+                if bit == '1':
                     continuation_number += 1
                 else:
                     break
