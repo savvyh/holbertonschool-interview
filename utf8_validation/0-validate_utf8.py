@@ -14,41 +14,36 @@ def validUTF8(data):
     Returns:
         True if data is a valid UTF-8 encoding, else False
     """
-    index = 0
+    if data == []:
+        return True
 
-    while index < len(data):
-        current_byte = data[index]
+    continuation_number = 0
 
-        if current_byte < 0 or current_byte > 255:
+    for byte in data:
+        if byte < 0 or byte > 255:
             return False
 
-        binary_string = format(current_byte, '08b')
+        binary_representation = format(byte, '08b')
 
-        expected_bytes = 0
-        for bit in binary_string:
-            if bit == '1':
-                expected_bytes += 1
-            else:
-                break
+        if continuation_number == 0:
+            count_byte = 0
+            for bit in binary_representation[:5]:
+                if bit == '1':
+                    count_byte += 1
+                else:
+                    break
 
-        if expected_bytes == 0:
-            index += 1
-            continue
+            if count_byte == 0:
+                continue
 
-        if expected_bytes == 1 or expected_bytes > 4:
-            return False
-
-        if index + expected_bytes > len(data):
-            return False
-
-        for continuation_index in range(index + 1, index + expected_bytes):
-            continuation_byte = data[continuation_index]
-            if continuation_byte < 0 or continuation_byte > 255:
-                return False
-            continuation_binary = format(continuation_byte, '08b')
-            if not continuation_binary.startswith('10'):
+            if count_byte == 1 or count_byte > 4:
                 return False
 
-        index += expected_bytes
+            continuation_number = count_byte - 1
 
-    return True
+        else:
+            if not binary_representation.startswith('10'):
+                return False
+            continuation_number -= 1
+
+    return continuation_number == 0
