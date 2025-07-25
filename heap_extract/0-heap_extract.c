@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "binary_trees.h"
 /**
  * heapify - Function that fix the heap max
