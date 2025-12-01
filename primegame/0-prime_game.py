@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+The module determines the winner of multiple rounds of the game, assuming
+both players play optimally and Maria always goes first.
+"""
 
 
 def is_prime(number):
