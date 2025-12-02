@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-import sys
-import signal
 """
-This module contains functions to parse log lines and print statistics.
+This module reads log lines from stdin and computes statistics about HTTP
+requests.
 """
 
+import sys
+import signal
 
 def print_stats(total_size, status_counts):
     """Print statistics"""
