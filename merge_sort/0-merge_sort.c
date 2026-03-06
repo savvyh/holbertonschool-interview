@@ -77,7 +77,7 @@ void merge_sort_helper(int *array, size_t left, size_t right, int *temp)
 
 	if (left < right)
 	{
-		mid = left + (right - left) / 2;
+		mid = left + (right - left + 1) / 2 - 1;
 		merge_sort_helper(array, left, mid, temp);
 		merge_sort_helper(array, mid + 1, right, temp);
 		merge(array, left, mid, right, temp);
