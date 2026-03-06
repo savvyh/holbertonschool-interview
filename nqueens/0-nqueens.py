@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def is_safe(positions, row, col):
     """
     Vérifie si on peut placer une reine à (row, col)
@@ -35,19 +36,18 @@ def solve_nqueens(row, positions, N):
             positions.pop()
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        exit(1)
+if len(sys.argv) != 2:
+    print("Usage: nqueens N")
+    exit(1)
 
-    try:
-        N = int(sys.argv[1])
-    except ValueError:
-        print("N must be a number")
-        exit(1)
+try:
+    N = int(sys.argv[1])
+except ValueError:
+    print("N must be a number")
+    exit(1)
 
-    if N < 4:
-        print("N must be at least 4")
-        exit(1)
+if N < 4:
+    print("N must be at least 4")
+    exit(1)
 
-    solve_nqueens(0, [], N)
+solve_nqueens(0, [], N)
