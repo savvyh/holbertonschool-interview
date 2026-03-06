@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Module to count occurrences of keywords in hot posts of a subreddit using Reddit API
+Module to count occurrences of keywords in hot posts
+of a subreddit using Reddit API
 """
 import requests
 
@@ -23,7 +24,7 @@ def count_words(subreddit, word_list, after=None, word_count=None):
 
     try:
         response = requests.get(url, headers=headers, allow_redirects=False)
-    except:
+    except requests.RequestException:
         return
 
     if response.status_code != 200:
